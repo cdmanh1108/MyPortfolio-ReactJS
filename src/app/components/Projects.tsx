@@ -1,4 +1,4 @@
-﻿import {
+import {
   Calendar,
   ExternalLink,
   Folder,
@@ -38,10 +38,11 @@ export function Projects() {
           return (
             <article
               key={index}
-              className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow grid lg:grid-rows-[subgrid] lg:row-span-2 gap-y-6 lg:gap-y-0"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+              <div className="flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
                   <Folder className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 {websiteUrl && (
@@ -126,18 +127,19 @@ export function Projects() {
                   )}
                 </div>
               </div>
+              </div>
 
-              <div className="mt-auto">
+              <div className="flex flex-col h-full">
                 <h4 className="text-base md:text-lg font-semibold mb-3 text-blue-600 dark:text-blue-400">
                   {language === 'en' ? 'My Contributions' : 'Đóng góp của tôi'}
                 </h4>
 
-                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-4">
+                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 flex-1">
                   <ul className="space-y-2">
                     {project.contributions.map((contribution, contribIndex) => (
                       <li
                         key={contribIndex}
-                        className="text-base text-gray-800 dark:text-gray-200 pl-5 relative before:content-['✔'] before:absolute before:left-0 before:text-blue-600"
+                        className="text-base text-gray-800 dark:text-gray-200 pl-5 relative before:content-['-'] before:absolute before:left-0 before:text-blue-600"
                       >
                         {contribution}
                       </li>
